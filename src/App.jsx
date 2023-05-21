@@ -15,6 +15,9 @@ import Test from "./components/Sidebar";
 import Picture from "./components/Picture";
 import Sidebar from './components/Sidebar'
 import Profile from "./components/PhyscologicalProfile"
+import axios from 'axios'
+axios.defaults.baseURL = "http://127.0.0.1:8080/api/v1/therapist"
+
 
 function App() {
   return (
