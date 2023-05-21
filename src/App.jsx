@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ChakraProvider, Button, Divider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import EditProfile from "./components/EditProfile"
+import LandingPage from "./components/LandingPage";
+import SignUpform from "./components/Signup";
+import Signin from "./components/Signin";
+import AboutUs from "./components/landingPageComponents/AboutUs";
+import Pricing from "./components/landingPageComponents/Pricing";
+import FAQs from "./components/landingPageComponents/FAQs";
+import ForgotPassword from "./components/ForgotPassword";
+import ViewTherapistProfile from "./components/ViewTherapistPofile";
+import Dashboard from "./components/Dashboard";
+import Multi from "./components/Multiple";
+import Test from "./components/Sidebar";
+import Picture from "./components/Picture";
+import Sidebar from './components/Sidebar'
+import Profile from "./components/PhyscologicalProfile"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <ChakraProvider>
+      <Router>      
+        <Routes>
+          <Route path="/" element={<LandingPage/>} />
+          <Route path="/signin" element={<Signin/>} />
+          <Route path="/signup" element={<SignUpform/>} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/pricing" element={<Pricing/>} />
+          <Route path="/faqs" element={<FAQs/>} />
+          <Route path="/forgotpassword" element={<ForgotPassword/>} />
+          <Route path="/settings" element={<EditProfile/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/therapistprofile" element={<ViewTherapistProfile/>}/>
+        </Routes>
+      </Router>
+      {/* <LandingPage/>    */}
+      {/* <Multi/> */}
+      {/* <Signin/> */}
+      {/* <SignUpform/>   */}
+      {/* <Formik/> */}
+      {/* <ForgotPassword/>   */}
+      {/* <Test/>       */}
 
-export default App
+    </ChakraProvider>
+  );
+}
+export default App;
